@@ -2,7 +2,7 @@
 
 ## Deploy URLs
 
- [Production](Link vercel)
+ [Production](https://technical-test-youtube.vercel.app/)
 
 
 ## Available Scripts
