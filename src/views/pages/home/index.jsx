@@ -5,9 +5,11 @@ import { getVideoDetailAction } from '@actions';
 
 import Loader from '@components/loader';
 import Error from '@components/error';
+import { useDispatch } from 'react-redux';
+
+import InputButton from '@ui/input-button';
 
 import './home.scss';
-import { useDispatch } from 'react-redux';
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -18,9 +20,14 @@ const Home = () => {
 
   return (
     <section className="Home" data-testid="Home">
-      <p>Home</p>
+      <h1 className="Home__title">Añadir nuevo video</h1>
+      <InputButton
+        className="Home__input"
+        placeholderInput="Añadir"
+        labelButton="Añadir"
+      />
       {false && <Loader />}
-      {false && <Error error={errorDetail || filterError} />}
+      {false && <Error error="errorDetail" />}
     </section>
   );
 };
