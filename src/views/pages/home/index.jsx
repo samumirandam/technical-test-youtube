@@ -49,6 +49,7 @@ const Home = () => {
     const videoId = getVideoId(url);
     if (videoId) {
       changeVideos([videoId, ...videos]);
+      setError('');
     } else {
       setError('No logramos obtener el video');
     }
@@ -103,9 +104,10 @@ const Home = () => {
       )}
       <VideoList>
         {videoDetailList
-          && videoDetailList.map((video) => (
+          && videoDetailList.map((video, index) => (
             <VideoCard
-              key={video?.id}
+              // eslint-disable-next-line react/no-array-index-key
+              key={`${video?.id}-${index}`}
               image={video?.snippet?.thumbnails?.medium?.url}
               name={video?.snippet?.title}
               canDelete
