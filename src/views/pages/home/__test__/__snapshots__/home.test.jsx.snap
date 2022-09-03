@@ -6,9 +6,31 @@ exports[`Test for Home page component Should renders the same component 1`] = `
     class="Home"
     data-testid="Home"
   >
-    <p>
-      Home
-    </p>
+    <h1
+      class="Home__title"
+    >
+      Añadir nuevo video
+    </h1>
+    <div
+      class="InputButton Home__input"
+    >
+      <input
+        autocomplete="true"
+        class="InputButton__input"
+        placeholder="Añadir"
+        type="text"
+        value=""
+      />
+      <button
+        class="Button InputButton__button primary secondary"
+        type="button"
+      >
+        Añadir
+      </button>
+    </div>
+    <section
+      class="VideoList"
+    />
   </section>
 </div>
 `;

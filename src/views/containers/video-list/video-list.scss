@@ -1,0 +1,23 @@
+@import '@styles/vars';
+
+.VideoList {
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 87px;
+  column-gap: 70px;
+  justify-items: center;
+  width: 100%;
+  padding: 0px 48px;
+}
+
+@media (min-width: 768px) {
+  .VideoList {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 1024px) {
+  .VideoList {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}

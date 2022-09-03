@@ -31,4 +31,11 @@ describe('Test for Actions', () => {
     };
     expect(actions.getVideoDetailSteps.error(payload)).toEqual(expected);
   });
+
+  test('Should call getVideoDetailAction', () => {
+    const payload = [];
+    const dispatch = jest.fn();
+    actions.getVideoDetailAction(payload)(dispatch);
+    expect(dispatch).toHaveBeenCalled();
+  });
 });

@@ -1,0 +1,17 @@
+@import '@styles/vars';
+
+.VideoCard {
+  position: relative;
+
+  &__delete {
+    color: $color-white;
+    background-color: $color-black;
+    position: absolute;
+    height: 24px;
+    width: 24px;
+    top: 9px;
+    right: 8px;
+    padding: 0px;
+    border-radius: 0px;
+  }
+}

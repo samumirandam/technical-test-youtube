@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test for VideoCard component Should renders the same component 1`] = `
+<div>
+  <div
+    class="VideoCard"
+  >
+    <figure>
+      <img
+        alt=""
+        src=""
+      />
+    </figure>
+    <button
+      class="Button VideoCard__delete secondary"
+      type="button"
+    >
+      X
+    </button>
+  </div>
+</div>
+`;
