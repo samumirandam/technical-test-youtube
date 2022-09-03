@@ -5,18 +5,17 @@ exports[`Test for VideoCard component Should renders the same component 1`] = `
   <div
     class="VideoCard"
   >
-    <figure>
-      <img
-        alt=""
-        src=""
-      />
-    </figure>
     <button
-      class="Button VideoCard__delete"
-      data-testid="VideoCard__delete"
+      class="Button noStyles"
+      data-testid=""
       type="button"
     >
-      X
+      <figure>
+        <img
+          alt="test image"
+          src=""
+        />
+      </figure>
     </button>
   </div>
 </div>

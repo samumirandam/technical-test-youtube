@@ -78,6 +78,69 @@ exports[`Test for Home page component Should renders the same component 1`] = `
         </div>
       </div>
     </div>
+    <div
+      class="Modal"
+    >
+      <div
+        class="Modal__container"
+      >
+        <div
+          class="Modal__header"
+        >
+          <button
+            class="Button Modal__header-button flat"
+            data-testid=""
+            type="button"
+          >
+            X
+          </button>
+        </div>
+        <div
+          class="Modal__body"
+        >
+          <div
+            class="Home__modal-container"
+          >
+            <div
+              class="VideoCard"
+            >
+              <button
+                class="Button noStyles"
+                data-testid=""
+                type="button"
+              >
+                <figure>
+                  <img
+                    alt=""
+                    src=""
+                  />
+                </figure>
+              </button>
+              <button
+                class="Button VideoCard__icon-play"
+                data-testid="VideoCard__icon-play"
+                type="button"
+              >
+                ►
+              </button>
+            </div>
+            <div
+              class="Home__video-info"
+            >
+              <p
+                class="Home__video-name"
+              />
+              <p
+                class="Home__video-description"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          class="Modal__footer"
+        />
+      </div>
+    </div>
   </section>
 </div>
 `;

@@ -21,4 +21,37 @@
     font-size: 2.4rem;
     color: #3c3e41;
   }
+
+  &__modal-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: center;
+  }
+
+  &__video-info {
+    padding: 0px 20px;
+    overflow: auto;
+  }
+
+  &__video-name {
+    font-weight: 500;
+    font-size: 2.4rem;
+    color: #3c3e41;
+    margin: 12px 0px;
+  }
+
+  &__video-description {
+    font-weight: 400;
+    font-size: 2.1rem;
+    color: #3c3e41;
+    padding: 0px 12px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .Home {
+    &__modal-container {
+      grid-template-columns: 2fr 3fr;
+    }
+  }
 }

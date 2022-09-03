@@ -1,6 +1,7 @@
 /* eslint-disable import/no-unresolved */
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 import { getVideoDetailAction } from '@actions';
 
@@ -21,10 +22,13 @@ import './home.scss';
 
 const Home = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const [error, setError] = useState('');
-  const [isOpenModalDelete, setIsOpenModalDetele] = useState(false);
-  const [videoToDelete, setVideoToDetele] = useState('');
+  const [isOpenModalDelete, setIsOpenModalDelete] = useState(false);
+  const [videoToDelete, setVideoToDelete] = useState('');
+  const [isOpenModalVideo, setIsOpenModalVideo] = useState(false);
+  const [videoToSee, setVideoToSee] = useState({});
 
   const videoDetailList = useSelector(
     (state) => state.videoDetail?.data?.items,
@@ -51,8 +55,22 @@ const Home = () => {
   };
 
   const handleClickDelete = (videoId) => {
-    setIsOpenModalDetele(true);
-    setVideoToDetele(videoId);
+    setIsOpenModalDelete(true);
+    setVideoToDelete(videoId);
+  };
+
+  const handleClickOpen = (videoId) => {
+    const video = videoDetailList.find((item) => item.id === videoId);
+    if (video) {
+      const videoData = {
+        id: videoId,
+        image: video?.snippet?.thumbnails?.medium?.url,
+        name: video?.snippet?.title,
+        description: video?.snippet?.description,
+      };
+      setVideoToSee(videoData);
+      setIsOpenModalVideo(true);
+    }
   };
 
   const handleDeleteVideo = () => {
@@ -61,8 +79,8 @@ const Home = () => {
       videos.splice(index, 1);
       changeVideos([...videos]);
     }
-    setVideoToDetele('');
-    setIsOpenModalDetele(false);
+    setVideoToDelete('');
+    setIsOpenModalDelete(false);
   };
 
   useEffect(() => {
@@ -90,7 +108,9 @@ const Home = () => {
               key={video?.id}
               image={video?.snippet?.thumbnails?.medium?.url}
               name={video?.snippet?.title}
+              canDelete
               onClickDelete={() => handleClickDelete(video?.id)}
+              onClickOpen={() => handleClickOpen(video?.id)}
             />
           ))}
       </VideoList>
@@ -98,8 +118,8 @@ const Home = () => {
       <Modal
         isOpen={isOpenModalDelete}
         closeModal={() => {
-          setVideoToDetele('');
-          setIsOpenModalDetele(false);
+          setVideoToDelete('');
+          setIsOpenModalDelete(false);
         }}
         primaryButton="Eliminar"
         secondaryButton="Cancelar"
@@ -108,6 +128,26 @@ const Home = () => {
         <p className="Home__delete-text">
           ¿Seguro que quieres eliminar este video?
         </p>
+      </Modal>
+      <Modal
+        isOpen={isOpenModalVideo}
+        closeModal={() => {
+          setVideoToSee({});
+          setIsOpenModalVideo(false);
+        }}
+      >
+        <div className="Home__modal-container">
+          <VideoCard
+            image={videoToSee.image}
+            name={videoToSee.name}
+            onClickOpen={() => navigate(`video/${videoToSee?.id}`)}
+            hasIcon
+          />
+          <div className="Home__video-info">
+            <p className="Home__video-name">{videoToSee.name}</p>
+            <p className="Home__video-description">{videoToSee.description}</p>
+          </div>
+        </div>
       </Modal>
     </section>
   );

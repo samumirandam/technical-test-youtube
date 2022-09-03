@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test for Modal component Should renders the same component 1`] = `
+<div>
+  <div
+    class="Modal"
+  >
+    <div
+      class="Modal__container"
+    >
+      <div
+        class="Modal__header"
+      >
+        <button
+          class="Button Modal__header-button flat"
+          data-testid=""
+          type="button"
+        >
+          X
+        </button>
+      </div>
+      <div
+        class="Modal__body"
+      >
+        <p>
+          modal test
+        </p>
+      </div>
+      <div
+        class="Modal__footer"
+      />
+    </div>
+  </div>
+</div>
+`;

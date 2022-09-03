@@ -10,6 +10,7 @@ const Button = ({
   flat,
   primary,
   secondary,
+  noStyles,
   onClick,
   dataTestid,
 }) => (
@@ -19,6 +20,7 @@ const Button = ({
       flat,
       primary,
       secondary,
+      noStyles,
     })}
     onClick={onClick}
     data-testid={dataTestid}
@@ -33,6 +35,7 @@ Button.propTypes = {
   flat: PropTypes.bool,
   primary: PropTypes.bool,
   secondary: PropTypes.bool,
+  noStyles: PropTypes.bool,
   onClick: PropTypes.func.isRequired,
   dataTestid: PropTypes.string,
 };
@@ -43,6 +46,7 @@ Button.defaultProps = {
   flat: false,
   primary: false,
   secondary: false,
+  noStyles: false,
   dataTestid: '',
 };
 
