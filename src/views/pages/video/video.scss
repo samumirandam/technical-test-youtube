@@ -4,6 +4,14 @@
   &__button {
     margin-bottom: 44px;
     width: 250px;
+    display: flex;
+    justify-content: center;
+  }
+
+  &__icon {
+    height: 20px;
+    width: 20px;
+    margin-right: 4px;
   }
 
   & iframe {

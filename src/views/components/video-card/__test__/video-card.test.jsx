@@ -31,7 +31,7 @@ describe('Test for VideoCard component', () => {
     };
     setup(props);
     fireEvent.click(screen.getByAltText('test image'));
-    fireEvent.click(screen.getByText('X'));
+    fireEvent.click(screen.getByTestId('VideoCard__delete'));
     expect(screen.getByAltText('test image')).toBeTruthy();
   });
 });

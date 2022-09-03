@@ -116,4 +116,33 @@ describe('Test for Home page component', () => {
     fireEvent.click(screen.getByText('Cancelar'));
     fireEvent.click(screen.getByText('Eliminar'));
   });
+
+  test('Should render click in video', () => {
+    localStorage.setItem('VIDEOS', JSON.stringify(['7qRc8DmfamA']));
+    const props = {
+      videoDetail: {
+        data: {
+          items: [
+            {
+              id: '7qRc8DmfamA',
+              snippet: {
+                title: 'test video',
+                thumbnails: {
+                  medium: {
+                    url: 'test url',
+                  },
+                },
+              },
+            },
+          ],
+        },
+      },
+    };
+    setup(props);
+    expect(screen.getByAltText('test video')).toBeTruthy();
+    fireEvent.click(screen.getByAltText('test video'));
+    fireEvent.click(screen.getByTestId('VideoCard__play'));
+    expect(global.window.location.pathname).toEqual('/video/7qRc8DmfamA');
+    fireEvent.click(screen.getAllByTestId('close')[1]);
+  });
 });

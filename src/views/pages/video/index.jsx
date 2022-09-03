@@ -1,6 +1,7 @@
 /* eslint-disable import/no-unresolved */
 import React from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import { FaUndo } from 'react-icons/fa';
 
 import Button from '@ui/button';
 
@@ -17,6 +18,7 @@ const Video = () => {
   return (
     <section className="Video">
       <Button secondary onClick={handleClick} className="Video__button">
+        <FaUndo className="Video__icon" />
         Volver
       </Button>
       <iframe
