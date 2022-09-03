@@ -1,3 +1,5 @@
+@import '@styles/vars';
+
 .Home {
   display: flex;
   flex-direction: column;
@@ -19,7 +21,7 @@
   &__delete-text {
     font-weight: 500;
     font-size: 2.4rem;
-    color: #3c3e41;
+    color: $color-dark-grey;
   }
 
   &__modal-container {
@@ -36,14 +38,14 @@
   &__video-name {
     font-weight: 500;
     font-size: 2.4rem;
-    color: #3c3e41;
+    color: $color-dark-grey;
     margin: 12px 0px;
   }
 
   &__video-description {
     font-weight: 400;
     font-size: 2.1rem;
-    color: #3c3e41;
+    color: $color-dark-grey;
     padding: 0px 12px;
   }
 }

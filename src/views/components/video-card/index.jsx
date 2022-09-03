@@ -1,6 +1,7 @@
 /* eslint-disable import/no-unresolved */
 import React from 'react';
 import PropTypes from 'prop-types';
+import { FaPlay, FaTimes } from 'react-icons/fa';
 
 import Button from '@ui/button';
 
@@ -26,16 +27,18 @@ const VideoCard = ({
         onClick={onClickDelete}
         dataTestid="VideoCard__delete"
       >
-        X
+        <FaTimes />
       </Button>
     )}
     {hasIcon && (
       <Button
-        className="VideoCard__icon-play"
+        className="VideoCard__play"
         onClick={onClickOpen}
-        dataTestid="VideoCard__icon-play"
+        dataTestid="VideoCard__play"
       >
-        ►
+        <div className="VideoCard__icon-container">
+          <FaPlay className="VideoCard__icon" />
+        </div>
       </Button>
     )}
   </div>

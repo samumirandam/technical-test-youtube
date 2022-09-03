@@ -2,6 +2,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
+import { FaTimes } from 'react-icons/fa';
 
 import Button from '@ui/button';
 
@@ -18,8 +19,8 @@ const Modal = ({
   <div className={classnames('Modal', { open: isOpen })}>
     <div className="Modal__container">
       <div className="Modal__header">
-        <Button flat onClick={closeModal} className="Modal__header-button">
-          X
+        <Button flat onClick={closeModal} className="Modal__header-button" dataTestid="close">
+          <FaTimes className="Modal__header-icon" />
         </Button>
       </div>
       <div className="Modal__body">{children}</div>

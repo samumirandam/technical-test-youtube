@@ -16,7 +16,7 @@
   }
 
   &__container {
-    background-color: #fbfbfb;
+    background-color: $color-primary-white;
     border-radius: 15px;
     margin: auto;
     padding: 30px;
@@ -31,8 +31,12 @@
   }
 
   &__header-button {
-    padding: 4px;
-    font-size: 3rem;
+    padding: 0px;
+  }
+
+  &__header-icon {
+    height: 20px;
+    width: 20px;
   }
 
   &__footer {

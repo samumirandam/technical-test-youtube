@@ -34,7 +34,7 @@ describe('Test for Modal component', () => {
     };
     setup(props);
     fireEvent.click(screen.getByText('test button'));
-    fireEvent.click(screen.getByText('X'));
+    fireEvent.click(screen.getByTestId('close'));
     expect(screen.getByText('modal test')).toBeTruthy();
   });
 });
