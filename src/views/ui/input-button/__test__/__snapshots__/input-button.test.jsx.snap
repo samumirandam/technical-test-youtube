@@ -13,7 +13,8 @@ exports[`Test for InputButton ui component Should renders the same component 1`]
       value=""
     />
     <button
-      class="Button InputButton__button primary secondary"
+      class="Button InputButton__button primary"
+      data-testid=""
       type="button"
     >
       Press

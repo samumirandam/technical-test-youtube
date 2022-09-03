@@ -2,6 +2,7 @@
 
 .VideoCard {
   position: relative;
+  justify-self: center;
 
   &__delete {
     color: $color-white;
@@ -13,5 +14,20 @@
     right: 8px;
     padding: 0px;
     border-radius: 0px;
+  }
+
+  &__icon-play {
+    height: 40px;
+    width: 40px;
+    padding: 0px;
+    color: $color-white;
+    background-color: red;
+    border-radius: 50%;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
   }
 }

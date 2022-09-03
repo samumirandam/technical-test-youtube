@@ -3,21 +3,24 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@utils/test-utils';
 
-import VideoCard from '../index';
+import Modal from '../index';
 
-const defaultProps = {
-  name: 'test image',
-};
+const defaultProps = {};
 
 const setup = (properties = {}) => {
   const setupStore = { ...defaultProps, ...properties };
-  return render(<VideoCard {...setupStore} />, {});
+  return render(
+    <Modal {...setupStore}>
+      <p>modal test</p>
+    </Modal>,
+    {},
+  );
 };
 
-describe('Test for VideoCard component', () => {
+describe('Test for Modal component', () => {
   test('Should render without errors', () => {
     setup();
-    expect(screen.getByAltText('test image')).toBeTruthy();
+    expect(screen.getByText('modal test')).toBeTruthy();
   });
 
   test('Should renders the same component', () => {
@@ -27,11 +30,11 @@ describe('Test for VideoCard component', () => {
 
   test('Should render click in button', () => {
     const props = {
-      canDelete: true,
+      primaryButton: 'test button',
     };
     setup(props);
-    fireEvent.click(screen.getByAltText('test image'));
+    fireEvent.click(screen.getByText('test button'));
     fireEvent.click(screen.getByText('X'));
-    expect(screen.getByAltText('test image')).toBeTruthy();
+    expect(screen.getByText('modal test')).toBeTruthy();
   });
 });

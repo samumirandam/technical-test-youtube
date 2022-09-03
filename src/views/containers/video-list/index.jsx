@@ -8,7 +8,11 @@ const VideoList = ({ children }) => (
 );
 
 VideoList.propTypes = {
-  children: PropTypes.arrayOf(PropTypes.node).isRequired,
+  children: PropTypes.arrayOf(PropTypes.node),
+};
+
+VideoList.defaultProps = {
+  children: [],
 };
 
 export default VideoList;

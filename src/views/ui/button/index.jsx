@@ -5,7 +5,14 @@ import classnames from 'classnames';
 import './button.scss';
 
 const Button = ({
-  children, className, flat, primary, secondary, onClick,
+  children,
+  className,
+  flat,
+  primary,
+  secondary,
+  noStyles,
+  onClick,
+  dataTestid,
 }) => (
   <button
     type="button"
@@ -13,8 +20,10 @@ const Button = ({
       flat,
       primary,
       secondary,
+      noStyles,
     })}
     onClick={onClick}
+    data-testid={dataTestid}
   >
     {children}
   </button>
@@ -26,7 +35,9 @@ Button.propTypes = {
   flat: PropTypes.bool,
   primary: PropTypes.bool,
   secondary: PropTypes.bool,
+  noStyles: PropTypes.bool,
   onClick: PropTypes.func.isRequired,
+  dataTestid: PropTypes.string,
 };
 
 Button.defaultProps = {
@@ -34,7 +45,9 @@ Button.defaultProps = {
   className: '',
   flat: false,
   primary: false,
-  secondary: true,
+  secondary: false,
+  noStyles: false,
+  dataTestid: '',
 };
 
 export default Button;

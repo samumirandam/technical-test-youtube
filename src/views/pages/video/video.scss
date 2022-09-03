@@ -1,0 +1,14 @@
+.Video {
+  height: 100vh;
+
+  &__button {
+    margin-bottom: 44px;
+    width: 250px;
+  }
+
+  & iframe {
+    width: 100%;
+    height: 100%;
+    padding-bottom: 100px;
+  }
+}
