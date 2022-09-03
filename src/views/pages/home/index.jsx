@@ -7,6 +7,7 @@ import { getVideoDetailAction } from '@actions';
 import useLocalStorage from '@hooks/useLocalStorage';
 
 import VideoList from '@containers/video-list';
+import Modal from '@containers/modal';
 
 import Loader from '@components/loader';
 import Error from '@components/error';
@@ -22,6 +23,8 @@ const Home = () => {
   const dispatch = useDispatch();
 
   const [error, setError] = useState('');
+  const [isOpenModalDelete, setIsOpenModalDetele] = useState(false);
+  const [videoToDelete, setVideoToDetele] = useState('');
 
   const videoDetailList = useSelector(
     (state) => state.videoDetail?.data?.items,
@@ -47,6 +50,21 @@ const Home = () => {
     }
   };
 
+  const handleClickDelete = (videoId) => {
+    setIsOpenModalDetele(true);
+    setVideoToDetele(videoId);
+  };
+
+  const handleDeleteVideo = () => {
+    const index = videos.indexOf(videoToDelete);
+    if (index > -1) {
+      videos.splice(index, 1);
+      changeVideos([...videos]);
+    }
+    setVideoToDetele('');
+    setIsOpenModalDetele(false);
+  };
+
   useEffect(() => {
     if (videos.length > 0) {
       dispatch(getVideoDetailAction(videos));
@@ -62,19 +80,35 @@ const Home = () => {
         labelButton="Añadir"
         onClick={handleAddVideo}
       />
+      {(videosError || error || isError) && (
+        <Error error={videosError || error || errorDetail} />
+      )}
       <VideoList>
         {videoDetailList
           && videoDetailList.map((video) => (
             <VideoCard
+              key={video?.id}
               image={video?.snippet?.thumbnails?.medium?.url}
               name={video?.snippet?.title}
+              onClickDelete={() => handleClickDelete(video?.id)}
             />
           ))}
       </VideoList>
       {(videosLoading || isLoading) && <Loader />}
-      {(videosError || error || isError) && (
-        <Error error={videosError || error || errorDetail} />
-      )}
+      <Modal
+        isOpen={isOpenModalDelete}
+        closeModal={() => {
+          setVideoToDetele('');
+          setIsOpenModalDetele(false);
+        }}
+        primaryButton="Eliminar"
+        secondaryButton="Cancelar"
+        primaryAction={handleDeleteVideo}
+      >
+        <p className="Home__delete-text">
+          ¿Seguro que quieres eliminar este video?
+        </p>
+      </Modal>
     </section>
   );
 };

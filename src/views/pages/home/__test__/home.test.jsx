@@ -71,7 +71,7 @@ describe('Test for Home page component', () => {
       },
     };
     setup(props);
-    expect(screen.getByText('X')).toBeTruthy();
+    expect(screen.getByAltText('test video')).toBeTruthy();
   });
 
   test('Should render error without errors', () => {
@@ -83,5 +83,37 @@ describe('Test for Home page component', () => {
     };
     setup(props);
     expect(screen.getByText('test error')).toBeTruthy();
+  });
+
+  test('Should render delete video without errors', () => {
+    localStorage.setItem('VIDEOS', JSON.stringify(['7qRc8DmfamA']));
+    const props = {
+      videoDetail: {
+        data: {
+          items: [
+            {
+              snippet: {
+                title: 'test video',
+                thumbnails: {
+                  medium: {
+                    url: 'test url',
+                  },
+                },
+              },
+              id: '7qRc8DmfamA',
+            },
+          ],
+        },
+      },
+    };
+    setup(props);
+    expect(screen.getByAltText('test video')).toBeTruthy();
+    fireEvent.click(screen.getByTestId('VideoCard__delete'));
+    expect(
+      screen.getByText('¿Seguro que quieres eliminar este video?'),
+    ).toBeTruthy();
+    fireEvent.click(screen.getByText('Eliminar'));
+    fireEvent.click(screen.getByText('Cancelar'));
+    fireEvent.click(screen.getByText('Eliminar'));
   });
 });
