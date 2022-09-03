@@ -6,9 +6,11 @@ exports[`Test for InputButton ui component Should renders the same component 1`]
     class="InputButton"
   >
     <input
+      autocomplete="true"
       class="InputButton__input"
-      placeholder=""
+      placeholder="Input"
       type="text"
+      value=""
     />
     <button
       class="Button InputButton__button primary secondary"

@@ -23,7 +23,8 @@ export const getVideoDetailSteps = {
 
 export const getVideoDetailAction = (payload) => (dispatch) => {
   const API_KEY = process.env.REACT_APP_API_KEY;
+  const ids = payload.join(',');
   getData(dispatch, getVideoDetailSteps, {
-    method: `/videos?id=${payload}&key=${API_KEY}&part=snippet`,
+    method: `/videos?id=${ids}&key=${API_KEY}&part=snippet`,
   });
 };
